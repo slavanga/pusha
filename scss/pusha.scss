@@ -3,7 +3,6 @@
 $pusha-z-index: 200 !default;
 $pusha-duration: 0.3s !default;
 $pusha-easing: ease !default;
-$pusha-overflow-scrolling: true !default;
 $pusha-blocker-z-index: $pusha-z-index + 10 !default;
 $pusha-blocker-duration: $pusha-duration !default;
 $pusha-blocker-bg: rgba(0, 0, 0, 0.5) !default;
@@ -151,10 +150,8 @@ body {
 	height: 100%;
 	overflow-y: auto;
 
-	@if $pusha-overflow-scrolling {
-		.pusha-panel--active & {
-			-webkit-overflow-scrolling: touch;
-		}
+	.pusha-panel--active & {
+		-webkit-overflow-scrolling: touch;
 	}
 }
 
