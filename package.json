@@ -1,0 +1,37 @@
+{
+  "name": "pusha",
+  "description": "Lightweight but complete off-canvas solution.",
+  "version": "1.0.0",
+  "keywords": [
+    "offcanvas",
+    "off-canvas",
+    "on-canvas",
+    "menu",
+    "mobile",
+    "navigation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slavanga/pusha.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-if": "^2.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-postcss": "^6.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "postcss-scss": "^0.4.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "android >= 4.3",
+    "ie >= 9"
+  ]
+}
