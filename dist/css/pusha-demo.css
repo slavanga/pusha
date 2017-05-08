@@ -122,11 +122,12 @@ body {
   z-index: 210;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
   -webkit-transition: visibility 0s linear 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: visibility 0s linear 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: visibility 0s linear 0.3s, transform 0.3s ease, opacity 0.3s ease;
