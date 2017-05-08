@@ -90,12 +90,12 @@ Pusha('.my-panel', {
 ```js
 var panel = Pusha('.my-panel');
 
+// Public methods
 panel.open();
-
 panel.close();
-
 panel.toggle();
 
+// Public properties
 panel.isOpen;
 ```
 
