@@ -40,7 +40,7 @@
 					}
 
 					api.activeElement = document.activeElement;
-					settings.onOpen();
+					settings.onOpen(panel);
 				}
 			},
 			close: function() {
@@ -54,7 +54,7 @@
 					}
 
 					api.activeElement.focus();
-					settings.onClose();
+					settings.onClose(panel);
 				}
 			},
 			toggle: function() {
