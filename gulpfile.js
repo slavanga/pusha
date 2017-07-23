@@ -68,7 +68,7 @@ gulp.task('serve', ['build'], function() {
 
 // Watch files for changes
 gulp.task('watch', function() {
-	gulp.watch('*.html', ['html']);
+	gulp.watch(config.src + '*.html', ['html']);
 	gulp.watch(config.src + 'scss/**/*.scss', ['styles']);
 	gulp.watch(config.src + 'js/**/*.js', ['scripts']);
 });
