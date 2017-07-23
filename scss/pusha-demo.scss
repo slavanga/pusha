@@ -1,46 +1,46 @@
 @import 'pusha';
 
 body {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 .container {
-	max-width: 720px;
+  max-width: 720px;
 }
 
 .page__header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 205;
-	padding: 15px 0;
-	background-color: #eee;
-	border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 205;
+  padding: 15px 0;
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
 }
 
 .page__content {
-	padding-top: 100px;
-	padding-bottom: 50px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 .menu {
-	margin: 0 -15px;
+  margin: 0 -15px;
 }
 
 .menu a {
-	display: block;
-	padding: 0.6em 1em;
+  display: block;
+  padding: 0.6em 1em;
 }
 
 .sub-menu {
-	display: none;
+  display: none;
 }
 
 .pusha-panel__content {
-	padding: 15px;
+  padding: 15px;
 }
 
 .pusha-panel__close {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
