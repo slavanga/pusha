@@ -1,9 +1,17 @@
 /*! Pusha v1.0.0 | MIT License | https://github.com/slavanga/pusha */
 
-(function(window, document, undefined) {
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require, exports, module);
+  } else {
+    root.Pusha = factory();
+  }
+}(this, function(require, exports, module) {
   'use strict';
 
-  function Pusha(element, options) {
+  var Pusha = function(element, options) {
     var panel = typeof element === 'string' ? document.querySelector(element) : element;
 
     if(! panel) return false;
@@ -174,5 +182,5 @@
     }
   }
 
-  window.Pusha = Pusha;
-}(window, document));
+  return Pusha;
+}));

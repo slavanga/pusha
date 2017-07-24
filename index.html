@@ -99,7 +99,7 @@
 
     <script src="dist/js/pusha.min.js"></script>
     <script>
-      var menuLeft = Pusha('.pusha-panel--left', {
+      var menuLeft = new Pusha('.pusha-panel--left', {
         onOpen: function() {
           console.log('Left panel opened.');
         },
@@ -108,7 +108,7 @@
         }
       });
 
-      var menuRight = Pusha('.pusha-panel--right', {
+      var menuRight = new Pusha('.pusha-panel--right', {
         onOpen: function() {
           console.log('Reft panel opened.');
         },

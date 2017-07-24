@@ -34,7 +34,7 @@ Pusha is a lightweight but complete off-canvas solution.
 
     <script src="dist/js/pusha.min.js"></script>
     <script>
-      var panel = Pusha('.pusha-panel--left');
+      var panel = new Pusha('.pusha-panel--left');
 
       document.querySelector('.js-open-panel').addEventListener('click', function() {
         panel.open();
@@ -75,7 +75,7 @@ $pusha-blocker-bg: rgba(0, 0, 0, 0.5);
 ## Options
 
 ```js
-Pusha('.my-panel', {
+new Pusha('.my-panel', {
   closeOnEsc: true,
   closeOnClick: true,
   disableOverscroll: true,
@@ -88,7 +88,7 @@ Pusha('.my-panel', {
 
 ## API
 ```js
-var panel = Pusha('.my-panel');
+var panel = new Pusha('.my-panel');
 
 // Public methods
 panel.open();
