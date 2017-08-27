@@ -14,7 +14,7 @@
   var Pusha = function(element, options) {
     var panel = typeof element === 'string' ? document.querySelector(element) : element;
 
-    if(! panel) return false;
+    if (! panel) return false;
 
     var html = document.documentElement;
     var blockerElement = document.getElementsByClassName('pusha-blocker')[0];
@@ -43,7 +43,7 @@
           addClass(html, settings.activeClass);
           addClass(panel, 'pusha-panel--active');
 
-          if(! transitionEvent) {
+          if (! transitionEvent) {
             addClass(html, 'pusha-animated');
           }
 
@@ -57,7 +57,7 @@
           removeClass(html, settings.activeClass);
           removeClass(panel, 'pusha-panel--active');
 
-          if(! transitionEvent) {
+          if (! transitionEvent) {
             removeClass(html, 'pusha-animated');
           }
 
@@ -85,7 +85,7 @@
 
         document.body.addEventListener('touchmove', function(e) {
           if (api.isOpen) {
-            if(el.scrollHeight <= el.clientHeight) {
+            if (el.scrollHeight <= el.clientHeight) {
               e.preventDefault();
             }
           }
@@ -93,7 +93,7 @@
       }
     };
 
-    if(transitionEvent) {
+    if (transitionEvent) {
       panel.addEventListener(transitionEvent, function(e) {
         if (e.propertyName == 'opacity') {
           if (api.isOpen) {
@@ -137,7 +137,7 @@
       blockerElement.addEventListener('touchstart', api.close);
     }
 
-    if(closeElement) {
+    if (closeElement) {
       closeElement.addEventListener('click', function(e) {
         e.preventDefault();
         api.close();
@@ -145,7 +145,7 @@
     }
 
     return api;
-  }
+  };
 
   var regExp = function(name) {
     return new RegExp('(^| )' + name + '( |$)');
