@@ -111,6 +111,7 @@ body {
 
 .pusha-panel--active .pusha-panel__content {
   -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pusha-blocker {

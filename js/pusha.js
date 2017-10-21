@@ -19,6 +19,7 @@
     var html = document.documentElement;
     var blockerElement = document.getElementsByClassName('pusha-blocker')[0];
     var closeElement = panel.querySelector('[data-close]');
+    var panelContent = panel.querySelector('.pusha-panel__content');
     var transitionEvent = getTransitionEvent();
     var settings = {
       closeOnEsc: true,
@@ -48,6 +49,7 @@
           }
 
           api.activeElement = document.activeElement;
+          panelContent.focus();
           settings.onOpen(panel);
         }
       },
@@ -106,7 +108,7 @@
     }
 
     if (settings.disableOverscroll) {
-      api.disableOverscroll(panel.querySelector('.pusha-panel__content'));
+      api.disableOverscroll(panelContent);
     }
 
     if (settings.closeOnEsc) {
@@ -143,6 +145,8 @@
         api.close();
       });
     }
+
+    panelContent.setAttribute('tabindex', '-1');
 
     return api;
   };
