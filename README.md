@@ -80,8 +80,8 @@ new Pusha('.my-panel', {
   closeOnClick: true,
   disableOverscroll: true,
   activeClass: 'pusha-active',
-  onOpen: function() {},
-  onClose: function() {}
+  onOpen: function(panel) {},
+  onClose: function(panel) {}
 });
 ```
 
