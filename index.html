@@ -7,7 +7,7 @@
 
     <title>Pusha | Off-canvas Navigation</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baseguide/1.9.0/css/baseguide.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baseguide/2.0.2/css/baseguide.min.css" />
     <link rel="stylesheet" href="dist/css/pusha-demo.min.css" />
   </head>
   <body class="page">
@@ -35,8 +35,8 @@
 
     <header class="page__header pusha-push">
       <div class="container">
-        <button class="btn pull-left js-open-left-menu">Left Menu</button>
-        <button class="btn pull-right js-open-right-menu">Right Menu</button>
+        <button class="btn pull-left js-open-left-menu" aria-expanded="false">Left Menu</button>
+        <button class="btn pull-right js-open-right-menu" aria-expanded="false">Right Menu</button>
       </div>
     </header>
 
@@ -117,13 +117,8 @@
         }
       });
 
-      document.querySelector('.js-open-left-menu').addEventListener('click', function() {
-        menuLeft.open();
-      });
-
-      document.querySelector('.js-open-right-menu').addEventListener('click', function() {
-        menuRight.open();
-      });
+      document.querySelector('.js-open-left-menu').addEventListener('click', menuLeft.open);
+      document.querySelector('.js-open-right-menu').addEventListener('click', menuRight.open);
     </script>
   </body>
 </html>

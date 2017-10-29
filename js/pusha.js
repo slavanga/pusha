@@ -38,7 +38,7 @@
 
     var api = {
       isOpen: false,
-      open: function() {
+      open: function(e) {
         if (! api.isOpen) {
           api.isOpen = true;
           addClass(html, settings.activeClass);
@@ -48,12 +48,17 @@
             addClass(html, 'pusha-animated');
           }
 
+          if(e) {
+            e.target.focus();
+          }
+
           api.activeElement = document.activeElement;
+          api.activeElement.setAttribute('aria-expanded', true);
           panelContent.focus();
           settings.onOpen(panel);
         }
       },
-      close: function() {
+      close: function(e) {
         if (api.isOpen) {
           api.isOpen = false;
           removeClass(html, settings.activeClass);
@@ -63,6 +68,7 @@
             removeClass(html, 'pusha-animated');
           }
 
+          api.activeElement.setAttribute('aria-expanded', false);
           api.activeElement.focus();
           settings.onClose(panel);
         }
