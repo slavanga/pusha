@@ -119,15 +119,7 @@
 
     if (settings.closeOnEsc) {
       document.addEventListener('keydown', function(e) {
-        var isEscape = false;
-
-        if ('key' in e) {
-          isEscape = (e.key == 'Escape' || e.key == 'Esc');
-        } else {
-          isEscape = (e.keyCode == 27);
-        }
-
-        if (isEscape) {
+        if (e.keyCode === 27) {
           e.preventDefault();
           api.close();
         }
