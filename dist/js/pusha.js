@@ -48,11 +48,7 @@
             addClass(html, 'pusha-animated');
           }
 
-          if(e) {
-            e.target.focus();
-          }
-
-          api.activeElement = document.activeElement;
+          api.activeElement = e.target;
           api.activeElement.setAttribute('aria-expanded', true);
           panelContent.focus();
           settings.onOpen(panel);
@@ -73,11 +69,11 @@
           settings.onClose(panel);
         }
       },
-      toggle: function() {
+      toggle: function(e) {
         if (api.isOpen) {
-          api.close();
+          api.close(e);
         } else {
-          api.open();
+          api.open(e);
         }
       },
       disableOverscroll: function(el) {
