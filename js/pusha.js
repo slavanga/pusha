@@ -48,7 +48,7 @@
             addClass(html, 'pusha-animated');
           }
 
-          api.activeElement = e.target;
+          api.activeElement = e.currentTarget;
           api.activeElement.setAttribute('aria-expanded', true);
           panelContent.focus();
           settings.onOpen(panel);
