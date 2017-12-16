@@ -93,7 +93,7 @@
               e.preventDefault();
             }
           }
-        }, { passive: false });
+        });
       }
     };
 
