@@ -5,7 +5,7 @@ $pusha-duration: 0.3s !default;
 $pusha-easing: ease !default;
 $pusha-blocker-z-index: $pusha-z-index + 10 !default;
 $pusha-blocker-duration: $pusha-duration !default;
-$pusha-blocker-bg: rgba(0, 0, 0, 0.5) !default;
+$pusha-blocker-bg: rgba(0, 0, 0, 0.7) !default;
 
 
 @mixin pusha-panel(
