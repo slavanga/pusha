@@ -41,10 +41,15 @@ gulp.task('scripts', function() {
   return gulp.src(config.src + 'js/*.js')
     .pipe(gulp.dest(config.dest + 'js'))
     .pipe(browserSync.stream())
-    .pipe($.uglify().on('error', function(error) {
-      $.util.log($.util.colors.red(error.message));
-      this.emit('end');
-    }))
+    .pipe(
+      $.uglify({
+        output: { comments: true }
+      })
+      .on('error', function(error) {
+        $.util.log($.util.colors.red(error.message));
+        this.emit('end');
+      })
+    )
     .pipe($.rename({suffix: '.min'}))
     .pipe($.if(config.minify, gulp.dest(config.dest + 'js')))
     .pipe(browserSync.stream());
