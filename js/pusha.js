@@ -40,6 +40,7 @@
       isOpen: false,
       open: function(e) {
         if (! api.isOpen) {
+          e.preventDefault();
           api.isOpen = true;
           addClass(html, settings.activeClass);
           addClass(panel, 'pusha-panel--active');
@@ -56,6 +57,7 @@
       },
       close: function(e) {
         if (api.isOpen) {
+          e.preventDefault();
           api.isOpen = false;
           removeClass(html, settings.activeClass);
           removeClass(panel, 'pusha-panel--active');
@@ -116,8 +118,7 @@
     if (settings.closeOnEsc) {
       document.addEventListener('keydown', function(e) {
         if (e.keyCode === 27) {
-          e.preventDefault();
-          api.close();
+          api.close(e);
         }
       });
     }
@@ -134,10 +135,7 @@
     }
 
     if (closeElement) {
-      closeElement.addEventListener('click', function(e) {
-        e.preventDefault();
-        api.close();
-      });
+      closeElement.addEventListener('click', api.close);
     }
 
     panelContent.setAttribute('tabindex', '-1');
