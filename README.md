@@ -16,7 +16,7 @@ Pusha is a lightweight but complete off-canvas solution.
     <link rel="stylesheet" href="dist/css/pusha.min.css" />
   </head>
   <body>
-    <div class="pusha-panel pusha-panel--left">
+    <div class="pusha-panel pusha-panel--left" aria-hidden="true">
       <div class="pusha-panel__content">
         <p>Panel</p>
         <button data-close>Close Panel</button>
@@ -29,7 +29,7 @@ Pusha is a lightweight but complete off-canvas solution.
 
     <div class="pusha-wrapper">
       <p>Content</p>
-      <button class="js-open-panel">Open Panel</button>
+      <button class="js-open-panel" aria-expanded="false">Open Panel</button>
     </div>
 
     <script src="dist/js/pusha.min.js"></script>

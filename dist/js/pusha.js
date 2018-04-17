@@ -51,6 +51,7 @@
 
           api.activeElement = e.currentTarget;
           api.activeElement.setAttribute('aria-expanded', true);
+          panel.setAttribute('aria-hidden', false);
           panelContent.focus();
           settings.onOpen(panel);
         }
@@ -68,6 +69,7 @@
 
           api.activeElement.setAttribute('aria-expanded', false);
           api.activeElement.focus();
+          panel.setAttribute('aria-hidden', true);
           settings.onClose(panel);
         }
       },
