@@ -40,7 +40,6 @@
       isOpen: false,
       open: function(e) {
         if (! api.isOpen) {
-          e.preventDefault();
           api.isOpen = true;
           addClass(html, settings.activeClass);
           addClass(panel, 'pusha-panel--active');
@@ -58,7 +57,6 @@
       },
       close: function(e) {
         if (api.isOpen) {
-          e.preventDefault();
           api.isOpen = false;
           removeClass(html, settings.activeClass);
           removeClass(panel, 'pusha-panel--active');
