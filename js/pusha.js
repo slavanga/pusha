@@ -48,8 +48,11 @@
             addClass(html, 'pusha-animated');
           }
 
-          api.activeElement = e.currentTarget;
-          api.activeElement.setAttribute('aria-expanded', true);
+          if (e) {
+            api.activeElement = e.currentTarget;
+            api.activeElement.setAttribute('aria-expanded', true);
+          }
+
           panel.setAttribute('aria-hidden', false);
           panelContent.focus();
           settings.onOpen(panel);
@@ -65,8 +68,11 @@
             removeClass(html, 'pusha-animated');
           }
 
-          api.activeElement.setAttribute('aria-expanded', false);
-          api.activeElement.focus();
+          if (api.activeElement) {
+            api.activeElement.setAttribute('aria-expanded', false);
+            api.activeElement.focus();
+          }
+
           panel.setAttribute('aria-hidden', true);
           settings.onClose(panel);
         }
