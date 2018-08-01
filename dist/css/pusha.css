@@ -129,7 +129,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-transition: visibility 0s linear 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: visibility 0s linear 0.3s, opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: visibility 0s linear 0.3s, transform 0.3s ease, opacity 0.3s ease;

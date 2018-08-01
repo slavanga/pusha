@@ -16,18 +16,18 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^8.2.0",
-    "browser-sync": "^2.23.6",
+    "autoprefixer": "^9.0.2",
+    "browser-sync": "^2.24.6",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.3",
+    "gulp-clean-css": "^3.9.4",
     "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.5.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
-    "postcss-scss": "^1.0.5"
+    "postcss-scss": "^2.0.0"
   },
   "browserslist": [
     "last 2 versions",
