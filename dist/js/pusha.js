@@ -1,4 +1,4 @@
-/*! Pusha v1.2.0 | MIT License | https://github.com/slavanga/pusha */
+/*! Pusha v1.3.0 | MIT License | https://github.com/slavanga/pusha */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
