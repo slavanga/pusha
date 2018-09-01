@@ -6,6 +6,7 @@ $pusha-easing: ease !default;
 $pusha-blocker-z-index: $pusha-z-index + 10 !default;
 $pusha-blocker-duration: $pusha-duration !default;
 $pusha-blocker-bg: rgba(0, 0, 0, 0.7) !default;
+$pusha-directions: (left, right, top, bottom) !default;
 
 
 @mixin pusha-panel(
@@ -128,12 +129,28 @@ body {
   will-change: transform;
 }
 
-.pusha-panel--left {
-  @include pusha-panel(left);
+@if index($pusha-directions, left) {
+  .pusha-panel--left {
+    @include pusha-panel(left);
+  }
 }
 
-.pusha-panel--right {
-  @include pusha-panel(right);
+@if index($pusha-directions, right) {
+  .pusha-panel--right {
+    @include pusha-panel(right);
+  }
+}
+
+@if index($pusha-directions, top) {
+  .pusha-panel--top {
+    @include pusha-panel(top, push, 100%, 260px);
+  }
+}
+
+@if index($pusha-directions, bottom) {
+  .pusha-panel--bottom {
+    @include pusha-panel(bottom, push, 100%, 260px);
+  }
 }
 
 .pusha-panel--active {

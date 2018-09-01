@@ -53,6 +53,7 @@ $pusha-easing: ease;
 $pusha-blocker-z-index: $pusha-z-index + 10;
 $pusha-blocker-duration: $pusha-duration;
 $pusha-blocker-bg: rgba(0, 0, 0, 0.5);
+$pusha-directions: (left, right, top, bottom);
 ```
 
 ### Mixins

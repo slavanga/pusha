@@ -92,6 +92,52 @@ body {
   transition: opacity 0.05s, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
+.pusha-panel--top {
+  width: 100%;
+  height: 260px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  z-index: 220;
+  -webkit-transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, -webkit-transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, -webkit-transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.pusha-panel--top.pusha-panel--active {
+  -webkit-transition: opacity 0.05s, -webkit-transform 0.3s ease;
+  transition: opacity 0.05s, -webkit-transform 0.3s ease;
+  transition: opacity 0.05s, transform 0.3s ease;
+  transition: opacity 0.05s, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.pusha-panel--bottom {
+  width: 100%;
+  height: 260px;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  z-index: 220;
+  -webkit-transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, -webkit-transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, -webkit-transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.pusha-panel--bottom.pusha-panel--active {
+  -webkit-transition: opacity 0.05s, -webkit-transform 0.3s ease;
+  transition: opacity 0.05s, -webkit-transform 0.3s ease;
+  transition: opacity 0.05s, transform 0.3s ease;
+  transition: opacity 0.05s, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
 .pusha-panel--active {
   opacity: 1;
   visibility: visible;
