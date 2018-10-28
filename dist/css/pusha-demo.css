@@ -215,6 +215,11 @@ body {
   padding-bottom: 50px;
 }
 
+.page__footer {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
 .menu {
   margin: 0 -15px;
 }
