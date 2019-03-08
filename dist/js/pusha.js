@@ -11,6 +11,17 @@
 }(this, function(require, exports, module) {
   'use strict';
 
+  var supportsPassive = false;
+  try {
+    var options = Object.defineProperty({}, 'passive', {
+      get: function() {
+        supportsPassive = true;
+      }
+    });
+    window.addEventListener('testPassive', null, options);
+    window.removeEventListener('testPassive', null, options);
+  } catch (e) {}
+
   var Pusha = function(element, options) {
     var panel = typeof element === 'string' ? document.querySelector(element) : element;
 
@@ -24,6 +35,7 @@
       closeOnEsc: true,
       closeOnClick: true,
       disableOverscroll: true,
+      disableBodyscroll: false,
       activeClass: 'pusha-active',
       onOpen: function() {},
       onClose: function() {}
@@ -76,21 +88,25 @@
         }
       },
       disableOverscroll: function(el) {
-        el.addEventListener('touchstart', function() {
-          if (el.scrollTop === 0) {
-            el.scrollTop = 1;
-          } else if (el.scrollTop + el.offsetHeight === el.scrollHeight) {
-            el.scrollTop = el.scrollTop - 1;
-          }
-        });
-
-        document.body.addEventListener('touchmove', function(e) {
-          if (api.isOpen) {
-            if (el.scrollHeight <= el.clientHeight) {
-              e.preventDefault();
+        if (! (window.CSS && CSS.supports('overscroll-behavior', 'contain'))) {
+          el.addEventListener('touchstart', function() {
+            if (el.scrollTop === 0) {
+              el.scrollTop = 1;
+            } else if (el.scrollTop + el.offsetHeight === el.scrollHeight) {
+              el.scrollTop = el.scrollTop - 1;
             }
+          });
+
+          if (settings.disableBodyscroll) {
+            document.body.addEventListener('touchmove', function(e) {
+              if (api.isOpen) {
+                if (el.scrollHeight <= el.clientHeight) {
+                  e.preventDefault();
+                }
+              }
+            }, supportsPassive ? { passive: false } : false);
           }
-        });
+        }
       }
     };
 
@@ -124,7 +140,7 @@
 
     if (settings.closeOnClick) {
       blockerElement.addEventListener('click', api.close);
-      blockerElement.addEventListener('touchstart', api.close);
+      blockerElement.addEventListener('touchstart', api.close, supportsPassive ? { passive: true } : false);
     }
 
     if (closeElement) {

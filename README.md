@@ -78,6 +78,7 @@ new Pusha('.my-panel', {
   closeOnEsc: true,
   closeOnClick: true,
   disableOverscroll: true,
+  disableBodyscroll: false,
   activeClass: 'pusha-active',
   onOpen: function(panel) {},
   onClose: function(panel) {}
