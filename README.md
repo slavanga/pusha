@@ -85,6 +85,8 @@ new Pusha('.my-panel', {
 });
 ```
 
+Note: Setting ```disableBodyscroll``` to ```true``` may lead to degraded scroll performance.
+
 
 ## API
 ```js
@@ -97,6 +99,19 @@ panel.toggle();
 
 // Public properties
 panel.isOpen;
+```
+
+
+## Recipes
+
+### Scroll Panel to Top
+
+```js
+var panel = new Pusha('.my-panel', {
+  onOpen: function(panel) {
+    panel.children[0].scrollTop = 0;
+  }
+});
 ```
 
 
