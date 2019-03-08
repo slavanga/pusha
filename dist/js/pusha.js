@@ -151,6 +151,7 @@
     }
 
     panelContent.setAttribute('tabindex', '-1');
+    panel.pusha = api;
 
     return api;
   };
