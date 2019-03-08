@@ -63,8 +63,7 @@ function scripts() {
 function eslint() {
   return gulp.src(config.src + 'js/**/*.js')
     .pipe($.eslint())
-    .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError());
+    .pipe($.eslint.format());
 }
 
 // Serve compiled files
