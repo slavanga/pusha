@@ -88,25 +88,22 @@
         }
       },
       disableOverscroll: function(el) {
-        if (! (window.CSS && CSS.supports('overscroll-behavior', 'contain'))) {
-          el.addEventListener('touchstart', function() {
-            if (el.scrollTop === 0) {
-              el.scrollTop = 1;
-            } else if (el.scrollTop + el.offsetHeight === el.scrollHeight) {
-              el.scrollTop = el.scrollTop - 1;
-            }
-          });
-
-          if (settings.disableBodyscroll) {
-            document.body.addEventListener('touchmove', function(e) {
-              if (api.isOpen) {
-                if (el.scrollHeight <= el.clientHeight) {
-                  e.preventDefault();
-                }
-              }
-            }, supportsPassive ? { passive: false } : false);
+        el.addEventListener('touchstart', function() {
+          if (el.scrollTop === 0) {
+            el.scrollTop = 1;
+          } else if (el.scrollTop + el.offsetHeight === el.scrollHeight) {
+            el.scrollTop = el.scrollTop - 1;
           }
-        }
+        });
+      },
+      disableBodyscroll: function(el) {
+        document.body.addEventListener('touchmove', function(e) {
+          if (api.isOpen) {
+            if (el.scrollHeight <= el.clientHeight) {
+              e.preventDefault();
+            }
+          }
+        }, supportsPassive ? { passive: false } : false);
       }
     };
 
@@ -120,8 +117,14 @@
       }
     });
 
-    if (settings.disableOverscroll) {
-      api.disableOverscroll(panelContent);
+    if (! (window.CSS && CSS.supports('overscroll-behavior', 'contain'))) {
+      if (settings.disableOverscroll) {
+        api.disableOverscroll(panelContent);
+      }
+
+      if (settings.disableBodyscroll) {
+        api.disableBodyscroll(panelContent);
+      }
     }
 
     if (settings.closeOnEsc) {
