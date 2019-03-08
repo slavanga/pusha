@@ -20,7 +20,6 @@
     var blockerElement = document.getElementsByClassName('pusha-blocker')[0];
     var closeElement = panel.querySelector('[data-close]');
     var panelContent = panel.querySelector('.pusha-panel__content');
-    var transitionEvent = getTransitionEvent();
     var settings = {
       closeOnEsc: true,
       closeOnClick: true,
@@ -41,12 +40,8 @@
       open: function(e) {
         if (! api.isOpen) {
           api.isOpen = true;
-          addClass(html, settings.activeClass);
-          addClass(panel, 'pusha-panel--active');
-
-          if (! transitionEvent) {
-            addClass(html, 'pusha-animated');
-          }
+          html.classList.add(settings.activeClass);
+          panel.classList.add('pusha-panel--active');
 
           if (e) {
             api.activeElement = e.currentTarget;
@@ -61,12 +56,8 @@
       close: function(e) {
         if (api.isOpen) {
           api.isOpen = false;
-          removeClass(html, settings.activeClass);
-          removeClass(panel, 'pusha-panel--active');
-
-          if (! transitionEvent) {
-            removeClass(html, 'pusha-animated');
-          }
+          html.classList.remove(settings.activeClass);
+          panel.classList.remove('pusha-panel--active');
 
           if (api.activeElement) {
             api.activeElement.setAttribute('aria-expanded', false);
@@ -86,11 +77,9 @@
       },
       disableOverscroll: function(el) {
         el.addEventListener('touchstart', function() {
-          var currentScroll = el.scrollTop + el.offsetHeight;
-
           if (el.scrollTop === 0) {
             el.scrollTop = 1;
-          } else if (currentScroll === el.scrollHeight) {
+          } else if (el.scrollTop + el.offsetHeight === el.scrollHeight) {
             el.scrollTop = el.scrollTop - 1;
           }
         });
@@ -105,17 +94,15 @@
       }
     };
 
-    if (transitionEvent) {
-      panel.addEventListener(transitionEvent, function(e) {
-        if (e.propertyName == 'opacity') {
-          if (api.isOpen) {
-            addClass(html, 'pusha-animated');
-          } else {
-            removeClass(html, 'pusha-animated');
-          }
+    panel.addEventListener('transitionend', function(e) {
+      if (e.propertyName == 'opacity') {
+        if (api.isOpen) {
+          html.classList.add('pusha-animated');
+        } else {
+          html.classList.remove('pusha-animated');
         }
-      });
-    }
+      }
+    });
 
     if (settings.disableOverscroll) {
       api.disableOverscroll(panelContent);
@@ -148,41 +135,6 @@
 
     return api;
   };
-
-  var regExp = function(name) {
-    return new RegExp('(^| )' + name + '( |$)');
-  };
-
-  function addClass(element, className) {
-    if (element.classList) {
-      element.classList.add(className);
-    } else {
-      element.className += ' ' + className;
-    }
-  }
-
-  function removeClass(element, className) {
-    if (element.classList) {
-      element.classList.remove(className);
-    } else {
-      element.className = element.className.replace(regExp(className), '');
-    }
-  }
-
-  function getTransitionEvent() {
-    var element = document.createElement('div');
-
-    var transitions = {
-      'transition': 'transitionend',
-      'WebkitTransition': 'webkitTransitionEnd'
-    };
-
-    for (var t in transitions) {
-      if (element.style[t] !== undefined) {
-        return transitions[t];
-      }
-    }
-  }
 
   return Pusha;
 }));
