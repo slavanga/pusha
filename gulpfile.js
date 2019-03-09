@@ -62,8 +62,9 @@ function scripts() {
 // Lint javascript
 function eslint() {
   return gulp.src(config.src + 'js/**/*.js')
-    .pipe($.eslint())
-    .pipe($.eslint.format());
+    .pipe($.eslint({fix: true}))
+    .pipe($.eslint.format())
+    .pipe(gulp.dest(config.src + 'js'));
 }
 
 // Serve compiled files
