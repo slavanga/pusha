@@ -22,6 +22,18 @@
     window.removeEventListener('testPassive', null, options);
   } catch (e) {}
 
+  function getScrollbarSize() {
+    var scrollDiv = document.createElement('div');
+    scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+    document.body.appendChild(scrollDiv);
+    var scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+
+    return scrollbarSize;
+  }
+
+  var scrollbarSize = getScrollbarSize();
+
   var Pusha = function(element, options) {
     var panel = typeof element === 'string' ? document.querySelector(element) : element;
 
@@ -111,8 +123,21 @@
       if (e.propertyName == 'opacity') {
         if (api.isOpen) {
           html.classList.add('pusha-animated');
+
+          if (document.body.scrollHeight > window.innerHeight) {
+            html.style.paddingRight = scrollbarSize + 'px';
+
+            Array.prototype.forEach.call(document.getElementsByClassName('pusha-push'), function(el) {
+              el.style.paddingRight = scrollbarSize + 'px';
+            });
+          }
         } else {
           html.classList.remove('pusha-animated');
+          html.style.paddingRight = '';
+
+          Array.prototype.forEach.call(document.getElementsByClassName('pusha-push'), function(el) {
+            el.style.paddingRight = '';
+          });
         }
       }
     });
