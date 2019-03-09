@@ -143,13 +143,13 @@ body {
 
 @if index($pusha-directions, top) {
   .pusha-panel--top {
-    @include pusha-panel(top, push, 100%, 260px);
+    @include pusha-panel(top, overlay, 100%, 260px);
   }
 }
 
 @if index($pusha-directions, bottom) {
   .pusha-panel--bottom {
-    @include pusha-panel(bottom, push, 100%, 260px);
+    @include pusha-panel(bottom, overlay, 100%, 260px);
   }
 }
 
