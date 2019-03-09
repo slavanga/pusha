@@ -11,16 +11,21 @@
 }(this, function() {
   'use strict';
 
-  var supportsPassive = false;
-  try {
-    var options = Object.defineProperty({}, 'passive', {
-      get: function() {
-        supportsPassive = true;
-      }
-    });
-    window.addEventListener('testPassive', null, options);
-    window.removeEventListener('testPassive', null, options);
-  } catch (e) {}
+  function testPassive() {
+    var supportsPassive = false;
+
+    try {
+      var options = Object.defineProperty({}, 'passive', {
+        get: function() {
+          supportsPassive = true;
+        }
+      });
+      window.addEventListener('testPassive', null, options);
+      window.removeEventListener('testPassive', null, options);
+    } catch (e) {}
+
+    return supportsPassive;
+  }
 
   function getScrollbarSize() {
     var scrollDiv = document.createElement('div');
@@ -32,6 +37,7 @@
     return scrollbarSize;
   }
 
+  var supportsPassive = testPassive();
   var scrollbarSize = getScrollbarSize();
 
   var Pusha = function(element, options) {
