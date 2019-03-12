@@ -105,8 +105,8 @@ body {
   overflow-x: hidden;
 }
 
-.pusha-animated,
-.pusha-animated body {
+.pusha-active,
+.pusha-active body {
   overflow: hidden;
 }
 
@@ -165,12 +165,12 @@ body {
   left: 0;
   right: 0;
   height: 100%;
-  overflow-y: auto;
   overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
 
-  .pusha-panel--active & {
-    -webkit-overflow-scrolling: touch;
-    -webkit-tap-highlight-color: transparent;
+  .pusha-active & {
+    overflow-y: auto;
   }
 }
 

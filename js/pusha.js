@@ -70,8 +70,16 @@
       open: function(e) {
         if (! api.isOpen) {
           api.isOpen = true;
-          html.classList.add(settings.activeClass);
           panel.classList.add('pusha-panel--active');
+          html.classList.add(settings.activeClass);
+
+          if (document.body.scrollHeight > window.innerHeight) {
+            html.style.paddingRight = scrollbarSize + 'px';
+
+            Array.prototype.forEach.call(document.getElementsByClassName('pusha-push'), function(el) {
+              el.style.paddingRight = scrollbarSize + 'px';
+            });
+          }
 
           if (e) {
             api.activeElement = e.currentTarget;
@@ -86,8 +94,13 @@
       close: function(e) {
         if (api.isOpen) {
           api.isOpen = false;
-          html.classList.remove(settings.activeClass);
           panel.classList.remove('pusha-panel--active');
+          html.classList.remove(settings.activeClass);
+          html.style.paddingRight = '';
+
+          Array.prototype.forEach.call(document.getElementsByClassName('pusha-push'), function(el) {
+            el.style.paddingRight = '';
+          });
 
           if (api.activeElement) {
             api.activeElement.setAttribute('aria-expanded', false);
@@ -129,21 +142,8 @@
       if (e.propertyName == 'opacity') {
         if (api.isOpen) {
           html.classList.add('pusha-animated');
-
-          if (document.body.scrollHeight > window.innerHeight) {
-            html.style.paddingRight = scrollbarSize + 'px';
-
-            Array.prototype.forEach.call(document.getElementsByClassName('pusha-push'), function(el) {
-              el.style.paddingRight = scrollbarSize + 'px';
-            });
-          }
         } else {
           html.classList.remove('pusha-animated');
-          html.style.paddingRight = '';
-
-          Array.prototype.forEach.call(document.getElementsByClassName('pusha-push'), function(el) {
-            el.style.paddingRight = '';
-          });
         }
       }
     });
