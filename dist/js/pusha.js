@@ -174,7 +174,6 @@
 
     if (settings.closeOnClick) {
       blockerElement.addEventListener('click', api.close);
-      blockerElement.addEventListener('touchstart', api.close, supportsPassive ? { passive: true } : false);
     }
 
     if (closeElement) {
