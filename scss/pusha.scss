@@ -16,6 +16,7 @@ $pusha-directions: (left, right, top, bottom) !default;
   $height: 100%,
   $background: #fff
 ) {
+  max-width: 100%;
   width: $width;
   height: $height;
   background-color: $background;
