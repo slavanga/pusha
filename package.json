@@ -36,7 +36,6 @@
   "browserslist": [
     "last 2 versions",
     "not dead",
-    "android >= 4",
     "firefox esr"
   ]
 }
